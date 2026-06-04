@@ -1,4 +1,4 @@
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
@@ -62,3 +62,109 @@ export default function App() {
   );
 }
 
+const styles = StyleSheet.create({
+  safe: { flex: 1, backgroundColor: "white" },
+  container: { flex: 1, backgroundColor: "white" },
+
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  logo: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  headerIcons: {
+    flexDirection: "row",
+    gap: 12,
+  },
+  icon: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: "#ddd",
+  },
+
+  stories: {
+    paddingVertical: 8,
+    borderBottomWidth: 0.5,
+    borderColor: "#ddd",
+  },
+  storyItem: {
+    alignItems: "center",
+    marginHorizontal: 8,
+  },
+  storyCircle: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: "#eee",
+    marginBottom: 4,
+  },
+  storyText: {
+    fontSize: 12,
+  },
+
+  feed: { flex: 1 },
+
+  post: { marginBottom: 24 },
+  postHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  postPic: {
+    width: 32,
+    height: 32,
+    borderRadius: 15,
+    backgroundColor: "#eee",
+    marginRight: 8,
+  },
+  postUser: {
+    fontWeight: "bold",
+  },
+  postImage: {
+    width: "100%",
+    height: 300,
+    backgroundColor: "#ccc",
+  },
+  postActions: {
+    flexDirection: "row",
+    gap: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  likes: {
+    fontWeight: "bold",
+    paddingHorizontal: 12,
+  },
+  caption: {
+    paddingHorizontal: 12,
+    marginTop: 2,
+  },
+  time: {
+    paddingHorizontal: 12,
+    marginTop: 4,
+    fontSize: 12,
+    color: "#888",
+  },
+
+  bottomNav: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    paddingVertical: 8,
+    borderTopWidth: 0.5,
+    borderColor: "#ddd",
+  },
+  navIcon: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: "#ddd",
+  },
+});
