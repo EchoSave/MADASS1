@@ -42,7 +42,7 @@ export default function App() {
                 source={require("../../assets/images/mainpage/user-account.jpg")}
                 style={styles.postPic}
               />
-              <Text style={styles.postUser}>username</Text>
+              <Text style={styles.postUser}>iamjay123</Text>
             </View>
 
             <Image
@@ -64,11 +64,11 @@ export default function App() {
               </View>
             </View>
 
-            <Text style={styles.likes}>Liked by user1 and others</Text>
+            <Text style={styles.likes}>Liked by user_1 and others</Text>
 
             <Text style={styles.caption}>
-              <Text style={styles.postUser}>username </Text>
-              caption text here
+              <Text style={styles.postUser}>iamjay123</Text>
+              Hello Instagram
             </Text>
 
             <Text style={styles.time}>2 hours ago</Text>
@@ -159,6 +159,7 @@ const styles = StyleSheet.create({
   },
   postUser: {
     fontWeight: "bold",
+    paddingRight: 8,
   },
   postImage: {
     width: "100%",
