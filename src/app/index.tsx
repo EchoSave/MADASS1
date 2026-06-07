@@ -1,9 +1,23 @@
+import BellButton from "@/components/BellButton";
 import { stories_data } from "@/data/stories";
 import { Feather } from "@expo/vector-icons";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 export default function App() {
+  // const showAlert = () => {
+  //   Alert.alert(
+  //     "OMG OMG OMG OMG OMG OMG OMG OMG OMG OMG  OM GOM GOMGLMG OLGM OGLMG O",
+  //     "That is the alram you'll hear!",
+  //     [{ text: "Cancel", style: "cancel" }, { text: "OK" }],
+  //   );
+  // };
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
@@ -81,6 +95,7 @@ export default function App() {
           <Feather name="search" size={24} color="black" />
           <Feather name="plus-square" size={24} color="black" />
           <Feather name="heart" size={24} color="black" />
+          <BellButton />
           <Image
             source={require("../../assets/images/mainpage/user-account.jpg")}
             style={styles.icon}
@@ -93,7 +108,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: "white" },
-  container: { flex: 1, backgroundColor: "white" },
+  container: { flex: 1, backgroundColor: "white", position: "relative" },
 
   header: {
     flexDirection: "row",
@@ -197,6 +212,11 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderTopWidth: 0.5,
     borderColor: "#ddd",
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    zIndex: 100,
+    backgroundColor: "white",
   },
   navIcon: {
     width: 24,
