@@ -20,7 +20,7 @@ const ProfileScreen = () => {
         
         <View style={styles.header}>
           <Image
-            source={{ uri: "https://i.pravatar.cc/200" }}
+            source={{ uri: "https://i.pravatar.cc/200?img=47" }}
             style={styles.avatar}
           />
           <Text style={styles.name}>Saron</Text>
