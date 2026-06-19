@@ -1,43 +1,81 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import BellButton from "@/components/BellButton";
+import { stories_data } from "@/data/stories";
+import { Feather } from "@expo/vector-icons";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 export default function App() {
+  // const showAlert = () => {
+  //   Alert.alert(
+  //     "OMG OMG OMG OMG OMG OMG OMG OMG OMG OMG  OM GOM GOMGLMG OLGM OGLMG O",
+  //     "That is the alram you'll hear!",
+  //     [{ text: "Cancel", style: "cancel" }, { text: "OK" }],
+  //   );
+  // };
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
-
+        {/** Header */}
         <View style={styles.header}>
           <Text style={styles.logo}>Instagram</Text>
           <View style={styles.headerIcons}>
-            <View style={styles.icon} />
-            <View style={styles.icon} />
+            <Image
+              source={require("../../assets/images/mainpage/threads-icon.webp")}
+              style={styles.icon}
+            />
+            <Image
+              source={require("../../assets/images/mainpage/3-horizontal-line-icon.webp")}
+              style={styles.icon}
+            />
           </View>
         </View>
 
+        {/** Story */}
         <View style={styles.stories}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {Array.from({ length: 8 }).map((_, i) => (
-              <View key={i} style={styles.storyItem}>
-                <View style={styles.storyCircle} />
-                <Text style={styles.storyText}>User {i + 1}</Text>
+            {stories_data.map((story, i) => (
+              <View key={story.id} style={styles.storyItem}>
+                <Image source={story.avatar} style={styles.storyCircle} />
+                <Text style={styles.storyText}>{story.username}</Text>
               </View>
             ))}
           </ScrollView>
         </View>
 
+        {/** User newfeed */}
         <ScrollView style={styles.feed}>
           <View style={styles.post}>
             <View style={styles.postHeader}>
-              <View style={styles.postPic} />
+              <Image
+                source={require("../../assets/images/mainpage/user-account.jpg")}
+                style={styles.postPic}
+              />
               <Text style={styles.postUser}>username</Text>
             </View>
 
-            <View style={styles.postImage} />
+            <Image
+              source={require("../../assets/images/mainpage/post-image.jpg")}
+              style={styles.postImage}
+            />
 
             <View style={styles.postActions}>
-              <View style={styles.icon} />
-              <View style={styles.icon} />
-              <View style={styles.icon} />
+              <View style={styles.postActionIcons}>
+                <Ionicons name="heart-outline" size={24} color="black" />
+                <Text>1M</Text>
+              </View>
+              <View style={styles.postActionIcons}>
+                <Ionicons name="chatbubble-outline" size={24} color="black" />
+                <Text>199</Text>
+              </View>
+              <View style={styles.postActionIcons}>
+                <Ionicons name="paper-plane-outline" size={24} color="black" />
+              </View>
             </View>
 
             <Text style={styles.likes}>Liked by user1 and others</Text>
@@ -51,12 +89,18 @@ export default function App() {
           </View>
         </ScrollView>
 
+        {/** Bottom Navicons */}
         <View style={styles.bottomNav}>
-          {Array.from({ length: 5 }).map((_, i) => (
-            <View key={i} style={styles.navIcon} />
-          ))}
+          <Feather name="home" size={24} color="black" />
+          <Feather name="search" size={24} color="black" />
+          <Feather name="plus-square" size={24} color="black" />
+          <Feather name="heart" size={24} color="black" />
+          <BellButton />
+          <Image
+            source={require("../../assets/images/mainpage/user-account.jpg")}
+            style={styles.icon}
+          />
         </View>
-
       </View>
     </SafeAreaView>
   );
@@ -64,7 +108,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: "white" },
-  container: { flex: 1, backgroundColor: "white" },
+  container: { flex: 1, backgroundColor: "white", position: "relative" },
 
   header: {
     flexDirection: "row",
@@ -74,8 +118,8 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   logo: {
-    fontSize: 24,
-    fontWeight: "bold",
+    fontSize: 28,
+    fontWeight: "700",
   },
   headerIcons: {
     flexDirection: "row",
@@ -101,6 +145,8 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
+    borderWidth: 2,
+    borderColor: "#E1306C",
     backgroundColor: "#eee",
     marginBottom: 4,
   },
@@ -123,6 +169,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: "#eee",
     marginRight: 8,
+    borderWidth: 2,
+    borderColor: "#E1306C",
   },
   postUser: {
     fontWeight: "bold",
@@ -137,6 +185,10 @@ const styles = StyleSheet.create({
     gap: 12,
     paddingHorizontal: 12,
     paddingVertical: 8,
+  },
+  postActionIcons: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   likes: {
     fontWeight: "bold",
@@ -160,6 +212,11 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderTopWidth: 0.5,
     borderColor: "#ddd",
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    zIndex: 100,
+    backgroundColor: "white",
   },
   navIcon: {
     width: 24,
@@ -167,4 +224,10 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: "#ddd",
   },
+  // navProfileIcon: {
+  //   borderRadius: 13,
+  //   borderWidth: 1,
+  //   borderColor: "black",
+  //   tintColor: undefined,
+  // },
 });
