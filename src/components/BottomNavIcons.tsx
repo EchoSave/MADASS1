@@ -14,7 +14,9 @@ const BottomNavIcons = () => {
         <Link href="/message" asChild>
           <Feather name="send" size={24} color="black" />
         </Link>
-        <Feather name="search" size={24} color="black" />
+        <Link href="/search" asChild>
+          <Feather name="search" size={24} color="black" />
+        </Link>
         <BellButton />
         <Image
           source={require("../../assets/images/mainpage/user-account.jpg")}
