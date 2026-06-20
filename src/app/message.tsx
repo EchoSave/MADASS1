@@ -184,9 +184,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 16,
     paddingVertical: 12,
-    borderBottomWidth: 0.5, // Thêm viền mờ dưới header cho giống IG
+    borderBottomWidth: 0.5,
     borderColor: "#e1e1e1",
-    position: "relative", // Làm điểm tựa cho phần Center căn giữa
+    position: "relative",
     height: 55,
   },
   headerLeft: {
