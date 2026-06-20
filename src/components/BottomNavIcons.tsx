@@ -18,10 +18,12 @@ const BottomNavIcons = () => {
           <Feather name="search" size={24} color="black" />
         </Link>
         <BellButton />
-        <Image
-          source={require("../../assets/images/mainpage/user-account.jpg")}
-          style={styles.icon}
-        />
+        <Link href="/profile" asChild>
+          <Image
+            source={require("../../assets/images/mainpage/user-account.jpg")}
+            style={styles.icon}
+          />
+        </Link>
       </View>
     </div>
   );

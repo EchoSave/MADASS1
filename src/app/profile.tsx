@@ -1,3 +1,4 @@
+import BottomNavIcons from "@/components/BottomNavIcons";
 import { Dimensions, Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -63,6 +64,7 @@ const ProfileScreen = () => {
         </View>
 
       </ScrollView>
+      <BottomNavIcons />
     </SafeAreaView>
   );
 };

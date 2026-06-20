@@ -1,4 +1,3 @@
-
 import {
   View,
   StyleSheet,
@@ -11,19 +10,28 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { REELS } from "../data/reels";
-
+import BottomNavIcons from "../components/BottomNavIcons";
 export default function SearchScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-
         {/* top of header */}
         <View style={styles.topRow}>
           <View style={styles.searchBar}>
-            <Ionicons name="search" size={24} color="#000" style={styles.icon} />
+            <Ionicons
+              name="search"
+              size={24}
+              color="#000"
+              style={styles.icon}
+            />
             <Text style={styles.placeholder}>Search with Meta AI</Text>
           </View>
-          <Ionicons name="filter" size={24} color="#000" style={styles.filterIcon} />
+          <Ionicons
+            name="filter"
+            size={24}
+            color="#000"
+            style={styles.filterIcon}
+          />
         </View>
 
         {/* bottom of header */}
@@ -64,6 +72,7 @@ export default function SearchScreen() {
           </TouchableOpacity>
         )}
       />
+      <BottomNavIcons />
     </SafeAreaView>
   );
 }
@@ -93,6 +102,7 @@ const styles = StyleSheet.create({
   },
   bottomofHeader: {
     marginTop: 12,
+    marginBottom: 8,
   },
   icon: {
     marginRight: 6,
@@ -128,21 +138,21 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   viewsOverlay: {
-  position: "absolute",
-  bottom: 6,
-  left: 6,
-  flexDirection: "row",
-  alignItems: "center",
-  backgroundColor: "rgba(0,0,0,0.45)",
-  paddingHorizontal: 6,
-  paddingVertical: 2,
-  borderRadius: 6,
-},
+    position: "absolute",
+    bottom: 6,
+    left: 6,
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.45)",
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 6,
+  },
 
-viewsText: {
-  color: "#fff",
-  marginLeft: 4,
-  fontSize: 12,
-  fontWeight: "600",
-},
+  viewsText: {
+    color: "#fff",
+    marginLeft: 4,
+    fontSize: 12,
+    fontWeight: "600",
+  },
 });
