@@ -11,13 +11,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 export default function App() {
-  // const showAlert = () => {
-  //   Alert.alert(
-  //     "OMG OMG OMG OMG OMG OMG OMG OMG OMG OMG  OM GOM GOMGLMG OLGM OGLMG O",
-  //     "That is the alram you'll hear!",
-  //     [{ text: "Cancel", style: "cancel" }, { text: "OK" }],
-  //   );
-  // };
+
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>

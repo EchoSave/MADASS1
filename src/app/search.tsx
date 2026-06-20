@@ -1,32 +1,47 @@
-import { ScrollView, View, Text, StyleSheet } from 'react-native';
+import BellButton from "@/components/BellButton";
+import { stories_data } from "@/data/stories";
+import { Feather } from "@expo/vector-icons";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SearchScreen() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView> 
+    <SafeAreaView style={styles.safe}>
+      <View style={styles.container}>
+          {/** Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>Search</Text>
-        </View> 
-        <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Search functionality coming soon!</Text>
+          </View>
         </View>
-      </ScrollView>
+
+          {/** Story */}
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safe: {
+    flex: 1,
+    backgroundColor: "white",
+  },
   container: {
     flex: 1,   
     paddingHorizontal: 20,
     backgroundColor: "white",
   },
     header: {
-    alignItems: "center",
-    marginTop: 20,
-    marginBottom: 30,
-    },
+      paddingHorizontal: 12,
+      paddingTop: 10,
+      paddingBottom: 6,
+      backgroundColor: "#fff",
+    }
     title: {
     fontSize: 24,
     fontWeight: "700",
