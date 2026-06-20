@@ -47,6 +47,7 @@ export default function SearchScreen() {
           ))}
         </ScrollView>
       </View>
+      {/* the reels in quesstion */}
       <FlatList
         data={REELS}
         numColumns={3}
@@ -55,6 +56,11 @@ export default function SearchScreen() {
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.gridItem} activeOpacity={1}>
             <Image source={item.image} style={styles.thumbnail} />
+
+            <View style={styles.viewsOverlay}>
+              <Ionicons name="eye-outline" size={14} color="#fff" />
+              <Text style={styles.viewsText}>{item.views}</Text>
+            </View>
           </TouchableOpacity>
         )}
       />
@@ -114,9 +120,29 @@ const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
     aspectRatio: 1,
+    margin: 1,
   },
   thumbnail: {
     width: "100%",
     height: "100%",
+    resizeMode: "cover",
   },
+  viewsOverlay: {
+  position: "absolute",
+  bottom: 6,
+  left: 6,
+  flexDirection: "row",
+  alignItems: "center",
+  backgroundColor: "rgba(0,0,0,0.45)",
+  paddingHorizontal: 6,
+  paddingVertical: 2,
+  borderRadius: 6,
+},
+
+viewsText: {
+  color: "#fff",
+  marginLeft: 4,
+  fontSize: 12,
+  fontWeight: "600",
+},
 });
