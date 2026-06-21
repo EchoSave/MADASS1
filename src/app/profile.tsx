@@ -1,26 +1,22 @@
-import { Dimensions, Image, ScrollView, StyleSheet, Text, View } from "react-native";
+
+import BottomNavIcons from "@/components/BottomNavIcons";
+import {
+    Image,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const width = Dimensions.get("window").width;
-const imageSize = width / 3;
-
-const fakePosts = [
-  "https://picsum.photos/400?random=1",
-  "https://picsum.photos/400?random=2",
-  "https://picsum.photos/400?random=3",
-  "https://picsum.photos/400?random=4",
-  "https://picsum.photos/400?random=5",
-  "https://picsum.photos/400?random=6",
-];
-
-const ProfileScreen = () => {
+export default function ProfileScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        
         <View style={styles.header}>
           <Image
-            source={{ uri: "https://i.pravatar.cc/200?img=47" }}
+            source={{ uri: "https://i.pravatar.cc/150?img=47" }}
             style={styles.avatar}
           />
           <Text style={styles.name}>Saron</Text>
@@ -29,108 +25,130 @@ const ProfileScreen = () => {
 
         <View style={styles.statsRow}>
           <View style={styles.statBox}>
-            <Text style={styles.statNumber}>6</Text>
-            <Text style={styles.statLabel}>Posts</Text>
+            <Text style={styles.statNumber}>2</Text>
+            <Text style={styles.statLabel}>posts</Text>
           </View>
-
           <View style={styles.statBox}>
-            <Text style={styles.statNumber}>273</Text>
-            <Text style={styles.statLabel}>Followers</Text>
+            <Text style={styles.statNumber}>272</Text>
+            <Text style={styles.statLabel}>followers</Text>
           </View>
-
           <View style={styles.statBox}>
-            <Text style={styles.statNumber}>250</Text>
-            <Text style={styles.statLabel}>Following</Text>
+            <Text style={styles.statNumber}>255</Text>
+            <Text style={styles.statLabel}>following</Text>
           </View>
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>About Me</Text>
-          <Text style={styles.sectionText}>
-            Software development student at SAIT. Interested in mobile apps,
-            React Native, and UI design.
+        <TouchableOpacity style={styles.bannerButton}>
+          <Text style={styles.bannerText}>+ Add banners</Text>
+        </TouchableOpacity>
+
+        <View style={styles.dashboardCard}>
+          <Text style={styles.dashboardTitle}>Your dashboard</Text>
+          <Text style={styles.dashboardSubtitle}>
+            122 views in the last 30 days.
           </Text>
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Posts</Text>
+        <View style={styles.buttonRow}>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Edit profile</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Share profile</Text>
+          </TouchableOpacity>
         </View>
-
-        <View style={styles.postsGrid}>
-          {fakePosts.map((img, i) => (
-            <Image key={i} source={{ uri: img }} style={styles.postImage} />
-          ))}
-        </View>
-
       </ScrollView>
+
+      <BottomNavIcons />
     </SafeAreaView>
   );
-};
-
-export default ProfileScreen;
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
-    backgroundColor: "white",
-  },
+  container: { flex: 1, backgroundColor: "#000" },
+
   header: {
     alignItems: "center",
-    marginTop: 20,
-    marginBottom: 30,
+    marginTop: 30,
+    marginBottom: 20,
   },
+
   avatar: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
+    width: 100,
+    height: 100,
+    borderRadius: 50,
     marginBottom: 10,
   },
+
   name: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "700",
+    color: "#fff",
   },
+
   username: {
-    fontSize: 16,
-    color: "gray",
+    fontSize: 14,
+    color: "#aaa",
   },
+
   statsRow: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginBottom: 30,
+    marginVertical: 20,
   },
-  statBox: {
-    alignItems: "center",
+
+  statBox: { alignItems: "center" },
+
+  statNumber: { fontSize: 18, fontWeight: "700", color: "#fff" },
+
+  statLabel: { fontSize: 13, color: "#aaa" },
+
+  bannerButton: {
+    alignSelf: "center",
+    backgroundColor: "#1a1a1a",
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    marginBottom: 10,
   },
-  statNumber: {
-    fontSize: 20,
+
+  bannerText: { color: "#ccc", fontWeight: "600" },
+
+  dashboardCard: {
+    backgroundColor: "#1a1a1a",
+    marginHorizontal: 16,
+    padding: 12,
+    borderRadius: 10,
+    marginBottom: 12,
+  },
+
+  dashboardTitle: {
+    color: "#fff",
     fontWeight: "700",
-  },
-  statLabel: {
-    fontSize: 14,
-    color: "gray",
-  },
-  section: {
-    marginBottom: 25,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: "600",
-    marginBottom: 8,
-  },
-  sectionText: {
     fontSize: 15,
-    color: "#444",
-    lineHeight: 22,
   },
-  postsGrid: {
+
+  dashboardSubtitle: {
+    color: "#aaa",
+    fontSize: 13,
+    marginTop: 4,
+  },
+
+  buttonRow: {
     flexDirection: "row",
-    flexWrap: "wrap",
+    justifyContent: "space-between",
+    marginHorizontal: 16,
+    marginTop: 10,
   },
-  postImage: {
-    width: imageSize,
-    height: imageSize,
-    borderWidth: 1,
-    borderColor: "#eee",
+
+  button: {
+    flex: 1,
+    backgroundColor: "#1a1a1a",
+    paddingVertical: 10,
+    borderRadius: 8,
+    alignItems: "center",
+    marginHorizontal: 4,
   },
+
+  buttonText: { color: "#fff", fontWeight: "600" },
 });
