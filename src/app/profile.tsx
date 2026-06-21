@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import BottomNavIcons from "@/components/BottomNavIcons";
 import {
@@ -8,6 +9,10 @@ import {
     TouchableOpacity,
     View,
 } from "react-native";
+=======
+import BottomNavIcons from "@/components/BottomNavIcons";
+import { Dimensions, Image, ScrollView, StyleSheet, Text, View } from "react-native";
+>>>>>>> 7bd91e09658e3dec7c2879e8232352103a748ac8
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ProfileScreen() {
@@ -58,7 +63,10 @@ export default function ProfileScreen() {
           </TouchableOpacity>
         </View>
       </ScrollView>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7bd91e09658e3dec7c2879e8232352103a748ac8
       <BottomNavIcons />
     </SafeAreaView>
   );

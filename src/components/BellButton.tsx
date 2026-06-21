@@ -1,5 +1,6 @@
-import { Platform, Alert, Pressable } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import React from "react";
+import { Alert, Platform, Pressable } from "react-native";
 
 export default function BellButton() {
   const showAlert = () => {

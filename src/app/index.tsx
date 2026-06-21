@@ -1,23 +1,10 @@
-import BellButton from "@/components/BellButton";
+import BottomNavIcons from "@/components/BottomNavIcons";
 import { stories_data } from "@/data/stories";
-import { Feather } from "@expo/vector-icons";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View
-} from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 export default function App() {
-  // const showAlert = () => {
-  //   Alert.alert(
-  //     "OMG OMG OMG OMG OMG OMG OMG OMG OMG OMG  OM GOM GOMGLMG OLGM OGLMG O",
-  //     "That is the alram you'll hear!",
-  //     [{ text: "Cancel", style: "cancel" }, { text: "OK" }],
-  //   );
-  // };
+
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
@@ -90,17 +77,7 @@ export default function App() {
         </ScrollView>
 
         {/** Bottom Navicons */}
-        <View style={styles.bottomNav}>
-          <Feather name="home" size={24} color="black" />
-          <Feather name="search" size={24} color="black" />
-          <Feather name="plus-square" size={24} color="black" />
-          <Feather name="heart" size={24} color="black" />
-          <BellButton />
-          <Image
-            source={require("../../assets/images/mainpage/user-account.jpg")}
-            style={styles.icon}
-          />
-        </View>
+        <BottomNavIcons />
       </View>
     </SafeAreaView>
   );
@@ -218,16 +195,4 @@ const styles = StyleSheet.create({
     zIndex: 100,
     backgroundColor: "white",
   },
-  navIcon: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    backgroundColor: "#ddd",
-  },
-  // navProfileIcon: {
-  //   borderRadius: 13,
-  //   borderWidth: 1,
-  //   borderColor: "black",
-  //   tintColor: undefined,
-  // },
 });
