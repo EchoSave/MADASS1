@@ -19,11 +19,11 @@ const mainPostPic = require("../../assets/images/mainpage/post-image.jpg");
 export default function ProfileScreen() {
   const postImages = [
     mainPostPic,
-    { uri: "https://picsum.photos/id/1011/300" },
-    { uri: "https://picsum.photos/id/1027/300" },
-    { uri: "https://picsum.photos/id/1005/300" },
-    { uri: "https://picsum.photos/id/1012/300" },
-    { uri: "https://picsum.photos/id/1021/300" },
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4jk-vtoYPBBUyucxNYyHYbs_l8FqrgQilew&s" },
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_GN_OtNhqsrOafJa9KrDQvSUYq3MoRB-pBg&s" },
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-aeNbpc8iTtTJ1Jn1aqI0W8mWIdzAkuv1mg&s" },
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7PRxx3zVnN-vCLHT1Xk632jrWXO-w97t24Q&s" },
+    { uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Bc2kgsLO1_n57I0Qj7IWigbAeb4tO205-A&s" },
   ];
 
   return (
