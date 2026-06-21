@@ -1,45 +1,78 @@
-<<<<<<< HEAD
-
-import BottomNavIcons from "@/components/BottomNavIcons";
+import { Ionicons } from "@expo/vector-icons";
 import {
-    Image,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Dimensions,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-=======
-import BottomNavIcons from "@/components/BottomNavIcons";
-import { Dimensions, Image, ScrollView, StyleSheet, Text, View } from "react-native";
->>>>>>> 7bd91e09658e3dec7c2879e8232352103a748ac8
 import { SafeAreaView } from "react-native-safe-area-context";
+import BottomNavIcons from "../components/BottomNavIcons";
+
+const screenWidth = Dimensions.get("window").width;
+
+const profilePic = require("../../assets/images/mainpage/user-account.jpg");
+const mainPostPic = require("../../assets/images/mainpage/post-image.jpg");
 
 export default function ProfileScreen() {
+  const postImages = [
+    mainPostPic,
+    { uri: "https://picsum.photos/id/1011/300" },
+    { uri: "https://picsum.photos/id/1027/300" },
+    { uri: "https://picsum.photos/id/1005/300" },
+    { uri: "https://picsum.photos/id/1012/300" },
+    { uri: "https://picsum.photos/id/1021/300" },
+  ];
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.header}>
-          <Image
-            source={{ uri: "https://i.pravatar.cc/150?img=47" }}
-            style={styles.avatar}
-          />
-          <Text style={styles.name}>Saron</Text>
-          <Text style={styles.username}>@saron.dev</Text>
+        <View style={styles.topBar}>
+          <TouchableOpacity>
+            <Ionicons name="add-outline" size={24} color="#000" />
+          </TouchableOpacity>
+
+          <View style={styles.usernameRow}>
+            <Ionicons name="lock-closed-outline" size={18} color="#000" />
+            <Text style={styles.usernameTop}>lousing.uyn</Text>
+            <Ionicons name="chevron-down-outline" size={18} color="#000" />
+          </View>
+
+          <View style={styles.rightIcons}>
+            <View style={styles.atButton}>
+              <Ionicons name="at-outline" size={22} color="#000" />
+            </View>
+
+            <TouchableOpacity>
+              <Ionicons name="menu-outline" size={28} color="#000" />
+            </TouchableOpacity>
+          </View>
         </View>
 
-        <View style={styles.statsRow}>
-          <View style={styles.statBox}>
-            <Text style={styles.statNumber}>2</Text>
-            <Text style={styles.statLabel}>posts</Text>
-          </View>
-          <View style={styles.statBox}>
-            <Text style={styles.statNumber}>272</Text>
-            <Text style={styles.statLabel}>followers</Text>
-          </View>
-          <View style={styles.statBox}>
-            <Text style={styles.statNumber}>255</Text>
-            <Text style={styles.statLabel}>following</Text>
+        <View style={styles.profileHeader}>
+          <Image source={profilePic} style={styles.avatar} />
+
+          <View style={styles.nameAndStats}>
+            <Text style={styles.name}>Software Developer</Text>
+
+            <View style={styles.statsRow}>
+              <View style={styles.statBox}>
+                <Text style={styles.statNumber}>6</Text>
+                <Text style={styles.statLabel}>posts</Text>
+              </View>
+
+              <View style={styles.statBox}>
+                <Text style={styles.statNumber}>5500</Text>
+                <Text style={styles.statLabel}>followers</Text>
+              </View>
+
+              <View style={styles.statBox}>
+                <Text style={styles.statNumber}>1000</Text>
+                <Text style={styles.statLabel}>following</Text>
+              </View>
+            </View>
           </View>
         </View>
 
@@ -50,7 +83,7 @@ export default function ProfileScreen() {
         <View style={styles.dashboardCard}>
           <Text style={styles.dashboardTitle}>Your dashboard</Text>
           <Text style={styles.dashboardSubtitle}>
-            122 views in the last 30 days.
+            2000 views in the last 30 days.
           </Text>
         </View>
 
@@ -58,89 +91,132 @@ export default function ProfileScreen() {
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Edit profile</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Share profile</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity style={styles.profileButton}>
+            <Ionicons name="person-outline" size={20} color="#000" />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.iconRow}>
+          <TouchableOpacity style={styles.iconButton}>
+            <Ionicons name="grid-outline" size={22} color="#000" />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.iconButton}>
+            <Ionicons name="play-circle-outline" size={22} color="#000" />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.iconButton}>
+            <Ionicons name="repeat-outline" size={22} color="#000" />
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.iconButton}>
+            <Ionicons name="camera-outline" size={22} color="#000" />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.postsGrid}>
+          {postImages.map((img, i) => (
+            <Image key={i} source={img} style={styles.postImage} />
+          ))}
         </View>
       </ScrollView>
-<<<<<<< HEAD
 
-=======
->>>>>>> 7bd91e09658e3dec7c2879e8232352103a748ac8
       <BottomNavIcons />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#000" },
+  container: { flex: 1, backgroundColor: "#fff" },
 
-  header: {
+  topBar: {
+    flexDirection: "row",
+    justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 30,
-    marginBottom: 20,
+    paddingHorizontal: 16,
+    marginTop: 10,
   },
 
-  avatar: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginBottom: 10,
+  usernameRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
   },
+
+  usernameTop: { color: "#000", fontWeight: "700", fontSize: 18 },
+
+  rightIcons: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 14,
+  },
+
+  atButton: {
+    backgroundColor: "#f2f2f2",
+    borderRadius: 6,
+    padding: 4,
+  },
+
+  profileHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 16,
+    marginTop: 20,
+  },
+
+  avatar: { width: 90, height: 90, borderRadius: 45 },
+
+  nameAndStats: { flex: 1, marginLeft: 16 },
 
   name: {
-    fontSize: 20,
+    color: "#000",
     fontWeight: "700",
-    color: "#fff",
-  },
-
-  username: {
-    fontSize: 14,
-    color: "#aaa",
+    fontSize: 16,
+    marginBottom: 6,
   },
 
   statsRow: {
     flexDirection: "row",
-    justifyContent: "space-around",
-    marginVertical: 20,
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 
-  statBox: { alignItems: "center" },
+  statBox: {
+    alignItems: "center",
+  },
 
-  statNumber: { fontSize: 18, fontWeight: "700", color: "#fff" },
+  statNumber: { fontSize: 18, fontWeight: "700", color: "#000" },
 
-  statLabel: { fontSize: 13, color: "#aaa" },
+  statLabel: { fontSize: 13, color: "#555" },
 
   bannerButton: {
-    alignSelf: "center",
-    backgroundColor: "#1a1a1a",
+    alignSelf: "flex-start",
+    backgroundColor: "#f2f2f2",
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 8,
-    marginBottom: 10,
+    marginHorizontal: 16,
+    marginTop: 10,
   },
 
-  bannerText: { color: "#ccc", fontWeight: "600" },
+  bannerText: { color: "#444", fontWeight: "600" },
 
   dashboardCard: {
-    backgroundColor: "#1a1a1a",
+    backgroundColor: "#f2f2f2",
     marginHorizontal: 16,
     padding: 12,
     borderRadius: 10,
-    marginBottom: 12,
+    marginTop: 10,
   },
 
-  dashboardTitle: {
-    color: "#fff",
-    fontWeight: "700",
-    fontSize: 15,
-  },
+  dashboardTitle: { color: "#000", fontWeight: "700", fontSize: 15 },
 
-  dashboardSubtitle: {
-    color: "#aaa",
-    fontSize: 13,
-    marginTop: 4,
-  },
+  dashboardSubtitle: { color: "#555", fontSize: 13, marginTop: 4 },
 
   buttonRow: {
     flexDirection: "row",
@@ -151,12 +227,47 @@ const styles = StyleSheet.create({
 
   button: {
     flex: 1,
-    backgroundColor: "#1a1a1a",
+    backgroundColor: "#f2f2f2",
     paddingVertical: 10,
     borderRadius: 8,
     alignItems: "center",
     marginHorizontal: 4,
   },
 
-  buttonText: { color: "#fff", fontWeight: "600" },
+  buttonText: { color: "#000", fontWeight: "600" },
+
+  profileButton: {
+    width: 40,
+    height: 40,
+    backgroundColor: "#f2f2f2",
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  iconRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginHorizontal: 16,
+    marginTop: 10,
+  },
+
+  iconButton: {
+    flex: 1,
+    backgroundColor: "#f2f2f2",
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: "center",
+    marginHorizontal: 4,
+  },
+
+  postsGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+
+  postImage: {
+    width: screenWidth / 3,
+    height: screenWidth / 3,
+  },
 });

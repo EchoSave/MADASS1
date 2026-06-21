@@ -34,7 +34,6 @@ export default function App() {
             ))}
           </ScrollView>
         </View>
-
         {/** User newfeed */}
         <ScrollView style={styles.feed}>
           <View style={styles.post}>
@@ -43,7 +42,7 @@ export default function App() {
                 source={require("../../assets/images/mainpage/user-account.jpg")}
                 style={styles.postPic}
               />
-              <Text style={styles.postUser}>username</Text>
+              <Text style={styles.postUser}>lousing.uyn</Text>
             </View>
 
             <Image
